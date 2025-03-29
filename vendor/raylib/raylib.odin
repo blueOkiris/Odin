@@ -121,17 +121,6 @@ when ODIN_OS == .Windows {
 		"system:dl",
 		"system:pthread",
 	}
-} else when ODIN_OS == .Darwin {
-	foreign import lib {
-		"macos/libraylib.550.dylib" when RAYLIB_SHARED else "macos/libraylib.a",
-		"system:Cocoa.framework",
-		"system:OpenGL.framework",
-		"system:IOKit.framework",
-	} 
-} else when ODIN_ARCH == .wasm32 || ODIN_ARCH == .wasm64p32 {
-	foreign import lib {
-		RAYLIB_WASM_LIB,
-	}
 } else {
 	foreign import lib "system:raylib"
 }
